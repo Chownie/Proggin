@@ -2,13 +2,13 @@
 package newuser
 
 import (
-	"web"
-	"utils"
+	"crypto/sha256"
 	sqlite "gosqlite.googlecode.com/hg/sqlite"
+	"hash"
 	"strconv"
 	"time"
-	"crypto/sha256"
-	"hash"
+	"utils"
+	"web"
 )
 
 func LoadPost(ctx *web.Context, val string) {
@@ -37,10 +37,10 @@ func LoadPost(ctx *web.Context, val string) {
 	//ENDTESTING
 
 	mapping := map[string]string{"css": "../inc/site.css",
-	"title": "Proggin: Admin panel",
-	"sidebar": sidebar,
-	"content": content,
-	"script": script}
+		"title":   "Proggin: Admin panel",
+		"sidebar": sidebar,
+		"content": content,
+		"script":  script}
 
 	output := utils.Loadmustache("frame.mustache", &mapping)
 	ctx.WriteString(output)

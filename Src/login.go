@@ -2,13 +2,13 @@
 package login
 
 import (
-	"utils"
-	"web"
-	sqlite "gosqlite.googlecode.com/hg/sqlite"
 	"crypto/sha256"
+	"fmt"
+	sqlite "gosqlite.googlecode.com/hg/sqlite"
 	"hash"
 	"strconv"
-	"fmt"
+	"utils"
+	"web"
 )
 
 func LoadGet(ctx *web.Context, val string) {
@@ -45,7 +45,7 @@ func LoadPost(ctx *web.Context, val string) {
 		if string(h.Sum()) == user.Password {
 			fmt.Println("Matching")
 			ctx.Redirect(307, "/admin/")
-			ctx.SetSecureCookie("id",strconv.Itoa(user.Id),1*24*60*60)
+			ctx.SetSecureCookie("id", strconv.Itoa(user.Id), 1*24*60*60)
 		}
 	} else {
 		output = generic(ctx, "")

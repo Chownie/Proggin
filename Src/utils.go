@@ -3,18 +3,18 @@ package utils
 
 import (
 	"fmt"
-	"web"
 	"github.com/hoisie/mustache.go"
 	"io/ioutil"
-	"strings"
 	"os"
+	"strings"
+	"web"
 )
 
 type User struct {
-	Id			int
-	Name		string
-	Password	string
-	Salt		string
+	Id       int
+	Name     string
+	Password string
+	Salt     string
 }
 
 func ReportErr(s os.Error) {
