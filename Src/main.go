@@ -5,20 +5,12 @@ import (
 	"web"
 
 	//These are self-made files
-	"utils"
-	"login"
-	"index"
 	"admin"
+	"index"
+	"login"
 	"newuser"
+	"utils"
 )
-
-/* Passwording
-original := input
-var h hash.Hash = sha1.New()
-salt := "HziNn!'*'()./A pretty and stable young pony"
-h.Write([]byte(original+salt))
-fmt.Printf("%s: %x\n", original, h.Sum())
-*/
 
 func main() {
 	web.Get("/()", index.Load)
