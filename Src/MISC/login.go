@@ -1,14 +1,13 @@
 // login.go
-package login
+package main
 
 import (
 	"crypto/sha256"
 	"fmt"
-	sqlite "gosqlite.googlecode.com/hg/sqlite"
+	"github.com/chownplus/web"
 	"hash"
 	"strconv"
 	"utils"
-	"web"
 )
 
 func LoadGet(ctx *web.Context, val string) {

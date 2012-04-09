@@ -1,5 +1,5 @@
 // newuser.go
-package newuser
+package main
 
 import (
 	"crypto/sha256"
@@ -14,9 +14,6 @@ import (
 func LoadPost(ctx *web.Context, val string) {
 	username := ctx.Params["username"]
 	password := ctx.Params["password"]
-
-	conn, _dberr := sqlite.Open("dbs/blog.db")
-	utils.ReportErr(_dberr)
 
 	salt := strconv.Itoa64(time.Nanoseconds()) + username
 
